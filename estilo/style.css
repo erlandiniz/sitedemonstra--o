@@ -1,0 +1,444 @@
+@charset "UTF-8";
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Bungee+Spice&family=Cascadia+Code:ital,wght@0,200..700;1,200..700&family=Passion+One:wght@400;700;900&family=Sriracha&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Bungee+Spice&family=Cascadia+Code:ital,wght@0,200..700;1,200..700&family=Passion+One:wght@400;700;900&family=Sriracha&display=swap');
+
+/*zerando configurações iniciais*/
+ *{
+    margin: 0;
+    padding: 0;
+ }
+
+
+
+ :root {
+    --font1: verdana,geneva, tahoma, sans-serif;
+    --font2: 'passion one', cursive; 
+    --font3: 'sriracha', cursive;
+}
+
+ body,html {
+    min-height: 100vh;
+    background-color: darkgray;
+ }
+
+header {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 61x;
+    display: flex;
+    justify-content: top;
+    align-items: top;
+    position: relative;
+    
+}
+
+
+/*header da logo marca*/
+.header-fixo {
+    position: fixed;
+    top:0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    display: flex;
+    transition: all 0.9s ease;
+
+
+}
+
+/* hide da logomarca*/
+.header-fixo.hide {
+    transform: translateY(-100%);/*esconde o header para cima*/
+    opacity: 0; /*deixa invisivel */
+
+}
+
+/*tamnaho da logo marca */
+.logo {
+    height: 350px;
+    object-fit: contain;
+    
+
+}
+    
+
+/* Estilos para o menu superior direito */
+.menu-superior-direito {
+    margin-left: -13%; /* Empurra o menu para a direita */
+    padding-right: 30px;
+    margin-top: 25px;
+}
+
+.menu-lista {
+    display: flex;
+    list-style: none;
+    gap: 25px;
+    margin: 0;
+    padding: 0;
+}
+
+.menu-lista li a {
+    color: white;
+    text-decoration: none;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.5rem;
+    padding: 8px 8px;
+    border-radius: 16px;
+    transition: all 0.3s ease;
+    background-color: #154919;
+    outline: none; /* Remove a borda azul de foco */
+    
+    
+
+}
+
+.menu-lista li a:hover {
+    background-color: rgb(85, 185, 102);
+    transform: translateY(-2px);
+}
+
+/* Estilo do Menu Secundário */
+.header-secundario {
+    position: fixed;
+    top: -80px; /* Escondido inicialmente */
+    left: 0;
+    width: 100%;
+    height: 70px;
+    background-color: #154919; /* Cor mais escura */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px -5px;
+    z-index: 999;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.24);
+    z-index: 1001;
+    background-image: url(../imagens/logo-fundo-transparente.png);
+    background-repeat: no-repeat;
+    background-size: 150px;
+
+   
+}
+
+.header-secundario.show {
+    top: 0; /* Mostra o menu */
+}
+
+.logo-secundaria { 
+    height: 200px;
+    object-fit: none;
+    /*corrigir*/
+}
+
+.menu-secundario .menu-lista li a {
+    font-size: 1.5rem;
+    padding: 6px 12px;
+    margin-right: 1em;
+    background-color: #154919;
+    
+
+}
+
+.menu-secundario .menu-lista li a:hover {
+    background-color: rgb(85, 185, 102);
+    text-decoration: underline;
+}
+
+
+header > h1 {
+    padding-top: 50px;
+    font-variant: small-caps;
+    font-size: 8vw;
+    font-family: var(--font1);
+}
+
+/*slide do topo do site*/
+.slider {
+    margin: 0 auto;
+    width: 100%;
+    right: 100%;
+    overflow: hidden;
+    background-color: blue;
+}
+
+
+
+/* ESTILOS DOS BOTÕES LATERAIS */
+.slide-btn {
+   position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 50px;
+    height: 50px;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+     
+}
+
+/* Quando estiverem escondidos */
+.slide-btn.hidden {
+    opacity: 0 !important;
+    pointer-events: none !important;
+}
+
+.prev-btn {
+    left: 20px;
+    background-image: url(../imagens/botão-esquerda.png);
+    
+}
+
+.prev-btn:hover{
+   background-image: url(../imagens/botão-esquerda.png);
+   background-color: #49c453;  
+}
+
+.next-btn {
+    right: 20px;
+    background-image: url(../imagens/botão-direita.png);
+}
+
+.next-btn:hover {
+     background-image: url(../imagens/botão-direita.png);
+     background-color: #49c453; 
+}
+
+
+
+
+
+/* GARANTIR QUE OS BOTÕES APAREÇAM */
+.slide-btn i {
+    display: block !important;
+    font-size: 24px;
+}
+
+.slides{
+    width: 5100px;
+    height: 610px;
+    display: flex;
+    z-index: 10;
+    
+}
+
+.slides input {
+    display: none;
+}
+
+.slide {
+    width: 25%;
+    position: relative;
+    transition: 2s;
+    
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    
+}
+
+.manual-navigation {
+    position:absolute;
+    width: 1200px;
+    margin-top: -40px;
+    display: flex;
+    justify-content:center;
+}
+
+.manual-btn {
+    border: 2px solid white;
+    padding: 5px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 1s;
+
+}
+
+.manual-btn:not(:last-child) {
+    margin-right: 40px;
+}
+
+.manual-btn:hover {
+  background-color: white;  
+}
+
+#radio1:checked ~ .first {
+    margin-left: 0;
+
+}
+
+#radio2:checked ~ .first {
+    margin-left: -25%;
+
+}
+
+#radio3:checked ~ .first {
+    margin-left: -50%;
+
+}
+#radio4:checked ~ .first {
+    margin-left: -75%;
+
+}
+
+.navigation-auto div {
+    border: 2px solid#20a6ff;
+    padding: 5px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 1s;
+}
+
+.navigation-auto {
+    position:absolute;
+    width: 1200px;
+    margin-top: 570px;
+    display: flex;
+    justify-content: center;
+
+}
+
+.navigation-auto div:not(:last-child) {
+    margin-right: 40px;
+}
+
+#radio1:checked ~ .navigation-auto .auto-btn1 {
+  background-color: white;  
+}
+
+#radio2:checked ~ .navigation-auto .auto-btn2 {
+  background-color: white;  
+}
+
+#radio3:checked ~ .navigation-auto .auto-btn3 {
+  background-color: white;  
+}
+
+#radio4:checked ~ .navigation-auto .auto-btn4 {
+  background-color: white;  
+}
+
+/*setions com e sem imagem como paralax*/
+section {
+    padding-top: 5vh;
+    line-height: 2em;
+    padding-left: 10px;
+    font-size: 2vw;
+}
+
+section > p {
+    padding-bottom:1.5em ;
+}
+
+section.normal {
+    background-color: white;
+    color: black;
+    text-indent: 2em;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+section.normal h2 {
+    text-indent: 450px;
+    font-family: var(--font2);
+    margin-bottom: 20px;
+
+}
+
+.tabela{
+   position: relative;
+   top: 40px;
+  ;
+}
+section.normal p {
+    font-family: var(--font3);
+    text-align: auto;
+    width: 1218px;
+    margin-left: 10px;
+
+
+    
+}
+
+section.imagem{
+    background-color: rgba(0, 0, 0, 0.377);
+    color: white;
+    box-shadow: inset 6px 6px 13px 0px rgba(0, 0, 0, 0.295);
+    background-attachment: fixed;
+
+}
+
+section.imagem > p {
+    background-color: rgba(0, 0, 0, 0.856); 
+    padding: 5px;
+    text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.5);
+    text-indent: 2em;
+    font-family: var(--font3);
+    font-size: 1em;
+    display: inline-block;
+    width: 1216px;
+    margin-left: 10px;
+    text-align: auto;
+    
+    
+
+    
+ }
+
+ section.imagem > h2 {
+    text-align: center;
+    margin-bottom: 1em;
+    font-family: var(--font2);
+    text-shadow: 2px 4px 5px black;
+    
+ }
+
+ section > ul {
+    font-family: var(--font3);
+    text-indent: 3px;
+    padding-left: 30px;
+    border: 3px solid black;
+    margin-bottom: 20px;
+    
+
+ }
+
+ section#img01 {
+    background-image: url(../imagens/cruz-vazia.png);
+    background-position: right center;
+    background-size: cover;
+
+}
+
+section#img02 {
+    background-image: url(../imagens/biblia.png);
+    background-size: cover;
+}
+
+section#img03 {
+    background-image: url(../imagens/img03.jpg);
+    background-size: cover;
+
+}
+ footer {
+    background-color: black;
+    text-align: center;
+    color: white;
+    padding-bottom: 20px;
+    font-variant: small-caps;
+    font-size: 20px;
+}
+
